@@ -3,11 +3,12 @@ import pickle
 import re
 import nltk
 from nltk.corpus import stopwords
+import os
 
 nltk.download('stopwords', quiet=True)
 
-# ── Load saved model ───────────────────────────────────────────────
-with open(r'D:\New folder\sentiment_model.pkl', 'rb') as f:
+model_path = os.path.join(os.path.dirname(__file__), 'sentiment_model.pkl')
+with open(model_path, 'rb') as f:
     classifier = pickle.load(f)
 
 # ── Same clean function as before ──────────────────────────────────
